@@ -16,6 +16,9 @@ int main (int argc, const char * argv[])
    {
       if(argc == 2)
       {
+         NSString *logPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Logs/VideoConvert.log"];
+         freopen([logPath fileSystemRepresentation], "a", stderr);
+         
          NSString *path = [NSString stringWithCString:argv[1] encoding:NSUTF8StringEncoding];
          NSURL *pathURL = [NSURL fileURLWithPath:path];
          

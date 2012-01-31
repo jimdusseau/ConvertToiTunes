@@ -21,7 +21,20 @@
    [task setArguments:argumentsArray];
    [task setLaunchPath:@"~/bin/HandBrakeCLI"];
    [task launch];
+   
+   NSLog(@"********** Writing Converted File to: %@ **********", self.resultVideoURL);
+   
    [task waitUntilExit];
+   
+   int status = [task terminationStatus];
+   if (status == 0)
+   {
+      NSLog(@"Convert Succeeded.");
+   }
+   else
+   {
+      NSLog(@"********** Warning: Convert Failed **********");
+   }
 }
 
 -(void)addToITunes
@@ -33,7 +46,12 @@
 
 -(void)go
 {
+   NSLog(@"\n\n\n");
+   NSLog(@"********** Beginning work on %@ **********", self.videoURL);
+   
    [self convertToMp4];
+   
+    NSLog(@"********** Adding to iTunes **********");
    [self addToITunes];
    
 }

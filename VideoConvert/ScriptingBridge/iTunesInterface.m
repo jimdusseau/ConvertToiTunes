@@ -31,8 +31,13 @@
       NSString *showName = [searchString substringWithRange:NSMakeRange(0, seasonRange.location-2)];
       showName = [showName stringByReplacingOccurrencesOfString:@"." withString:@" "];
       
-      track.seasonNumber = [[searchString substringWithRange:seasonRange] integerValue];
-      track.episodeNumber = [[searchString substringWithRange:episodeRange] integerValue];
+      NSInteger seasonNumber = [[searchString substringWithRange:seasonRange] integerValue];
+      NSInteger episodeNumber = [[searchString substringWithRange:episodeRange] integerValue];
+
+      NSLog(@"Setting season number: %ld episode number: %ld show name: %@ on track: %@", seasonNumber, episodeNumber, showName, track);
+      
+      track.seasonNumber = seasonNumber;
+      track.episodeNumber = episodeNumber;
       track.show = showName;
    }
 }
