@@ -13,7 +13,7 @@
 
 @synthesize videoURL, resultVideoURL;
 
--(void)convertToMp4
+-(BOOL)convertToMp4
 {
    NSArray *argumentsArray = [NSArray arrayWithObjects:@"-i", [self.videoURL path], @"-o", [self.resultVideoURL path], @"--preset", @"AppleTV",  nil];
    
@@ -30,10 +30,12 @@
    if (status == 0)
    {
       NSLog(@"Convert Succeeded.");
+      return YES;
    }
    else
    {
       NSLog(@"********** Warning: Convert Failed **********");
+      return NO;
    }
 }
 
@@ -49,11 +51,12 @@
    NSLog(@"\n\n\n");
    NSLog(@"********** Beginning work on %@ **********", self.videoURL);
    
-   [self convertToMp4];
-   
-    NSLog(@"********** Adding to iTunes **********");
-   [self addToITunes];
-   
+   BOOL convertSucceeded = [self convertToMp4];
+   if(convertSucceeded)
+   {
+      NSLog(@"********** Adding to iTunes **********");
+      [self addToITunes];
+   }
 }
 
 @end
