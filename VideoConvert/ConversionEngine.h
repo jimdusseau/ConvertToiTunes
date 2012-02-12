@@ -14,8 +14,7 @@
 }
 
 @property (retain, nonatomic) NSURL *videoURL;
-@property (retain, nonatomic) NSURL *resultVideoURL;
 
--(void)go;
+-(void)doConversion;
 
 @end

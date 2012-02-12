@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		FA93E5DF14D5BBE100361292 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA93E5DE14D5BBE100361292 /* Foundation.framework */; };
 		FA93E5E214D5BBE100361292 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA93E5E114D5BBE100361292 /* main.m */; };
-		FA93E5E614D5BBE100361292 /* VideoConvert.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = FA93E5E514D5BBE100361292 /* VideoConvert.1 */; };
 		FA93E5EE14D5BF5300361292 /* ConversionEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = FA93E5ED14D5BF5300361292 /* ConversionEngine.m */; };
 		FA93E5F314D5C7EF00361292 /* iTunesInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = FA93E5F214D5C7EF00361292 /* iTunesInterface.m */; };
 		FA93E5F514D5CE0B00361292 /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA93E5F414D5CE0B00361292 /* ScriptingBridge.framework */; };
+		FACE6AD014E7FDB3002367AC /* HandbrakeWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = FACE6ACF14E7FDB2002367AC /* HandbrakeWrapper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -22,7 +22,6 @@
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
-				FA93E5E614D5BBE100361292 /* VideoConvert.1 in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
@@ -33,13 +32,14 @@
 		FA93E5DE14D5BBE100361292 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FA93E5E114D5BBE100361292 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FA93E5E414D5BBE100361292 /* VideoConvert-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VideoConvert-Prefix.pch"; sourceTree = "<group>"; };
-		FA93E5E514D5BBE100361292 /* VideoConvert.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = VideoConvert.1; sourceTree = "<group>"; };
 		FA93E5EC14D5BF5300361292 /* ConversionEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversionEngine.h; sourceTree = "<group>"; };
 		FA93E5ED14D5BF5300361292 /* ConversionEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversionEngine.m; sourceTree = "<group>"; };
 		FA93E5F014D5C6F300361292 /* iTunes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunes.h; sourceTree = "<group>"; };
 		FA93E5F114D5C7EF00361292 /* iTunesInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunesInterface.h; sourceTree = "<group>"; };
 		FA93E5F214D5C7EF00361292 /* iTunesInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iTunesInterface.m; sourceTree = "<group>"; };
 		FA93E5F414D5CE0B00361292 /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
+		FACE6ACE14E7FDB2002367AC /* HandbrakeWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HandbrakeWrapper.h; sourceTree = "<group>"; };
+		FACE6ACF14E7FDB2002367AC /* HandbrakeWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HandbrakeWrapper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,10 +86,11 @@
 			children = (
 				FA93E5EF14D5C6C100361292 /* ScriptingBridge */,
 				FA93E5E114D5BBE100361292 /* main.m */,
-				FA93E5E514D5BBE100361292 /* VideoConvert.1 */,
 				FA93E5E314D5BBE100361292 /* Supporting Files */,
 				FA93E5EC14D5BF5300361292 /* ConversionEngine.h */,
 				FA93E5ED14D5BF5300361292 /* ConversionEngine.m */,
+				FACE6ACE14E7FDB2002367AC /* HandbrakeWrapper.h */,
+				FACE6ACF14E7FDB2002367AC /* HandbrakeWrapper.m */,
 			);
 			path = VideoConvert;
 			sourceTree = "<group>";
@@ -165,6 +166,7 @@
 				FA93E5E214D5BBE100361292 /* main.m in Sources */,
 				FA93E5EE14D5BF5300361292 /* ConversionEngine.m in Sources */,
 				FA93E5F314D5C7EF00361292 /* iTunesInterface.m in Sources */,
+				FACE6AD014E7FDB3002367AC /* HandbrakeWrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +259,7 @@
 				FA93E5EB14D5BBE100361292 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

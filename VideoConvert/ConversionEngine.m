@@ -8,54 +8,25 @@
 
 #import "ConversionEngine.h"
 #import "iTunesInterface.h"
+#import "HandbrakeWrapper.h"
 
 @implementation ConversionEngine
 
-@synthesize videoURL, resultVideoURL;
+@synthesize videoURL;
 
--(BOOL)convertToMp4
+-(void)doConversion
 {
-   NSArray *argumentsArray = [NSArray arrayWithObjects:@"-i", [self.videoURL path], @"-o", [self.resultVideoURL path], @"--preset", @"AppleTV",  nil];
+   NSLog(@"\n\n\n********** Beginning work on %@ **********", self.videoURL);
    
-   NSTask *task = [[NSTask alloc] init];
-   [task setArguments:argumentsArray];
-   [task setLaunchPath:@"~/bin/HandBrakeCLI"];
-   [task launch];
-   
-   NSLog(@"********** Writing Converted File to: %@ **********", self.resultVideoURL);
-   
-   [task waitUntilExit];
-   
-   int status = [task terminationStatus];
-   if (status == 0)
-   {
-      NSLog(@"Convert Succeeded.");
-      return YES;
-   }
-   else
-   {
-      NSLog(@"********** Warning: Convert Failed **********");
-      return NO;
-   }
-}
-
--(void)addToITunes
-{
-   iTunesInterface *interface = [[iTunesInterface alloc] init];
-   [interface addVideoToiTunes:self.resultVideoURL];
-   [[NSFileManager defaultManager] removeItemAtURL:self.resultVideoURL error:NULL];
-}
-
--(void)go
-{
-   NSLog(@"\n\n\n");
-   NSLog(@"********** Beginning work on %@ **********", self.videoURL);
-   
-   BOOL convertSucceeded = [self convertToMp4];
-   if(convertSucceeded)
+   HandbrakeWrapper *handbrakeWrapper = [[HandbrakeWrapper alloc] init];
+   NSURL *convertedFileUrl = [handbrakeWrapper convertVideoURL:self.videoURL usingPreset:@"AppleTV" newExtension:@"m4v"];
+   if(convertedFileUrl)
    {
       NSLog(@"********** Adding to iTunes **********");
-      [self addToITunes];
+      
+      iTunesInterface *interface = [[iTunesInterface alloc] init];
+      [interface addVideoToiTunes:convertedFileUrl];
+      [[NSFileManager defaultManager] removeItemAtURL:convertedFileUrl error:NULL];
    }
 }
 

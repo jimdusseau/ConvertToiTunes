@@ -22,15 +22,9 @@ int main (int argc, const char * argv[])
          NSString *path = [NSString stringWithCString:argv[1] encoding:NSUTF8StringEncoding];
          NSURL *pathURL = [NSURL fileURLWithPath:path];
          
-         NSString *tempPath = [NSTemporaryDirectory() stringByAppendingPathComponent:[path lastPathComponent]];
-         tempPath  = [[tempPath stringByDeletingPathExtension] stringByAppendingPathExtension:@"m4v"];
-         NSURL *resultURL = [NSURL fileURLWithPath:tempPath];
-         
          ConversionEngine *engine = [[ConversionEngine alloc] init];
          engine.videoURL = pathURL;
-         engine.resultVideoURL = resultURL;
-         
-         [engine go];
+         [engine doConversion];
       }
       else
       {
