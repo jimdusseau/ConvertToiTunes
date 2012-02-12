@@ -13,7 +13,7 @@ A command line utility for OS X to convert a video file to be playable by 1st ge
 		~/bin/VideoConvert "$f"
 	done`
 	
-4. Save. Your finished workflow should look like this: (http://dl.getdropbox.com/u/3578765/imageHost/github/ConvertToiTunes_workflow.png)
+4. Save. Your finished workflow should look like [this](http://dl.getdropbox.com/u/3578765/imageHost/github/ConvertToiTunes_workflow.png)
 
 #Misc Details
 
