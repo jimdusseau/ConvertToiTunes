@@ -8,10 +8,10 @@ A command line utility for OS X to convert a video file to be playable by 1st ge
 2. Pick your folder, and drag over the "Run Shell Script" action
 3. Paste in some code to loop over and convert the added files:
 
-	for f in "$@"
+	`for f in "$@"
 	do
 		~/bin/VideoConvert "$f"
-	done
+	done`
 	
 4. Save. Your finished workflow should look like this: (http://dl.getdropbox.com/u/3578765/imageHost/github/ConvertToiTunes_workflow.png)
 
