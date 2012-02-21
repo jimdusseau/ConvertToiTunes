@@ -13,10 +13,17 @@
 @implementation ConversionEngine
 
 @synthesize videoURL;
+@synthesize excludededFileExtensions;
 
 -(void)doConversion
 {
    NSLog(@"\n\n\n********** Beginning work on %@ **********", self.videoURL);
+   
+   if([excludededFileExtensions containsObject:[self.videoURL pathExtension]])
+   {
+      NSLog(@"********** Stopping convert because the path extension is on the excluded list. **********\n\n");
+      return;
+   }
    
    HandbrakeWrapper *handbrakeWrapper = [[HandbrakeWrapper alloc] init];
    NSURL *convertedFileUrl = [handbrakeWrapper convertVideoURL:self.videoURL usingPreset:@"AppleTV" newExtension:@"m4v"];

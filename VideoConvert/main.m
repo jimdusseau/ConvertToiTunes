@@ -27,6 +27,7 @@ int main (int argc, const char * argv[])
       NSURL *pathURL = [NSURL fileURLWithPath:path];
       
       ConversionEngine *engine = [[ConversionEngine alloc] init];
+      engine.excludededFileExtensions = [NSArray arrayWithObject:@"mkv"];
       engine.videoURL = pathURL;
       [engine doConversion];
    }
