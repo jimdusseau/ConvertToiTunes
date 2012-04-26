@@ -26,7 +26,7 @@
    }
    
    HandbrakeWrapper *handbrakeWrapper = [[HandbrakeWrapper alloc] init];
-   NSURL *convertedFileUrl = [handbrakeWrapper convertVideoURL:self.videoURL usingPreset:@"AppleTV" newExtension:@"m4v"];
+   NSURL *convertedFileUrl = [handbrakeWrapper convertVideoURL:self.videoURL usingPreset:@"AppleTV 2" newExtension:@"m4v"];
    if(convertedFileUrl)
    {
       NSLog(@"********** Adding to iTunes **********");
