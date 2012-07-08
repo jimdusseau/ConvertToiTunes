@@ -1,0 +1,1 @@
+#define STAssertEqualStrings(expectedString, actualString) STAssertTrue([expectedString isEqualToString:actualString], @"Expected: %@ but found %@", expectedString, actualString)
