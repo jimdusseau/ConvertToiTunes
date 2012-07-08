@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA55257F15A9DA8A00C735D6 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA55257E15A9DA8A00C735D6 /* SenTestingKit.framework */; };
+		FA55258115A9DA8A00C735D6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA55258015A9DA8A00C735D6 /* Cocoa.framework */; };
+		FA55258B15A9DA8A00C735D6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA55258915A9DA8A00C735D6 /* InfoPlist.strings */; };
+		FA55258E15A9DA8A00C735D6 /* VideoConvertTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA55258D15A9DA8A00C735D6 /* VideoConvertTests.m */; };
 		FA93E5DF14D5BBE100361292 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA93E5DE14D5BBE100361292 /* Foundation.framework */; };
 		FA93E5E214D5BBE100361292 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA93E5E114D5BBE100361292 /* main.m */; };
 		FA93E5EE14D5BF5300361292 /* ConversionEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = FA93E5ED14D5BF5300361292 /* ConversionEngine.m */; };
@@ -28,6 +32,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FA55257D15A9DA8A00C735D6 /* VideoConvertTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideoConvertTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA55257E15A9DA8A00C735D6 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		FA55258015A9DA8A00C735D6 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		FA55258315A9DA8A00C735D6 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		FA55258415A9DA8A00C735D6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		FA55258515A9DA8A00C735D6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FA55258815A9DA8A00C735D6 /* VideoConvertTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VideoConvertTests-Info.plist"; sourceTree = "<group>"; };
+		FA55258A15A9DA8A00C735D6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FA55258C15A9DA8A00C735D6 /* VideoConvertTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoConvertTests.h; sourceTree = "<group>"; };
+		FA55258D15A9DA8A00C735D6 /* VideoConvertTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoConvertTests.m; sourceTree = "<group>"; };
+		FA55258F15A9DA8A00C735D6 /* VideoConvertTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VideoConvertTests-Prefix.pch"; sourceTree = "<group>"; };
 		FA93E5DA14D5BBE000361292 /* VideoConvert */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VideoConvert; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA93E5DE14D5BBE100361292 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FA93E5E114D5BBE100361292 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -43,6 +58,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		FA55257915A9DA8A00C735D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA55257F15A9DA8A00C735D6 /* SenTestingKit.framework in Frameworks */,
+				FA55258115A9DA8A00C735D6 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FA93E5D714D5BBE000361292 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -55,11 +79,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA55258215A9DA8A00C735D6 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA55258315A9DA8A00C735D6 /* AppKit.framework */,
+				FA55258415A9DA8A00C735D6 /* CoreData.framework */,
+				FA55258515A9DA8A00C735D6 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		FA55258615A9DA8A00C735D6 /* VideoConvertTests */ = {
+			isa = PBXGroup;
+			children = (
+				FA55258C15A9DA8A00C735D6 /* VideoConvertTests.h */,
+				FA55258D15A9DA8A00C735D6 /* VideoConvertTests.m */,
+				FA55258715A9DA8A00C735D6 /* Supporting Files */,
+			);
+			path = VideoConvertTests;
+			sourceTree = "<group>";
+		};
+		FA55258715A9DA8A00C735D6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FA55258815A9DA8A00C735D6 /* VideoConvertTests-Info.plist */,
+				FA55258915A9DA8A00C735D6 /* InfoPlist.strings */,
+				FA55258F15A9DA8A00C735D6 /* VideoConvertTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		FA93E5CF14D5BBE000361292 = {
 			isa = PBXGroup;
 			children = (
 				FA93E5F414D5CE0B00361292 /* ScriptingBridge.framework */,
 				FA93E5E014D5BBE100361292 /* VideoConvert */,
+				FA55258615A9DA8A00C735D6 /* VideoConvertTests */,
 				FA93E5DD14D5BBE000361292 /* Frameworks */,
 				FA93E5DB14D5BBE000361292 /* Products */,
 			);
@@ -69,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				FA93E5DA14D5BBE000361292 /* VideoConvert */,
+				FA55257D15A9DA8A00C735D6 /* VideoConvertTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -77,6 +133,9 @@
 			isa = PBXGroup;
 			children = (
 				FA93E5DE14D5BBE100361292 /* Foundation.framework */,
+				FA55257E15A9DA8A00C735D6 /* SenTestingKit.framework */,
+				FA55258015A9DA8A00C735D6 /* Cocoa.framework */,
+				FA55258215A9DA8A00C735D6 /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -116,6 +175,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		FA55257C15A9DA8A00C735D6 /* VideoConvertTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA55259215A9DA8A00C735D6 /* Build configuration list for PBXNativeTarget "VideoConvertTests" */;
+			buildPhases = (
+				FA55257815A9DA8A00C735D6 /* Sources */,
+				FA55257915A9DA8A00C735D6 /* Frameworks */,
+				FA55257A15A9DA8A00C735D6 /* Resources */,
+				FA55257B15A9DA8A00C735D6 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VideoConvertTests;
+			productName = VideoConvertTests;
+			productReference = FA55257D15A9DA8A00C735D6 /* VideoConvertTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		FA93E5D914D5BBE000361292 /* VideoConvert */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA93E5E914D5BBE100361292 /* Build configuration list for PBXNativeTarget "VideoConvert" */;
@@ -154,11 +231,47 @@
 			projectRoot = "";
 			targets = (
 				FA93E5D914D5BBE000361292 /* VideoConvert */,
+				FA55257C15A9DA8A00C735D6 /* VideoConvertTests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		FA55257A15A9DA8A00C735D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA55258B15A9DA8A00C735D6 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		FA55257B15A9DA8A00C735D6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		FA55257815A9DA8A00C735D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA55258E15A9DA8A00C735D6 /* VideoConvertTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FA93E5D614D5BBE000361292 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -172,7 +285,48 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		FA55258915A9DA8A00C735D6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA55258A15A9DA8A00C735D6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		FA55259015A9DA8A00C735D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VideoConvertTests/VideoConvertTests-Prefix.pch";
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				INFOPLIST_FILE = "VideoConvertTests/VideoConvertTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		FA55259115A9DA8A00C735D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VideoConvertTests/VideoConvertTests-Prefix.pch";
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				INFOPLIST_FILE = "VideoConvertTests/VideoConvertTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		FA93E5E714D5BBE100361292 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -243,6 +397,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		FA55259215A9DA8A00C735D6 /* Build configuration list for PBXNativeTarget "VideoConvertTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA55259015A9DA8A00C735D6 /* Debug */,
+				FA55259115A9DA8A00C735D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		FA93E5D414D5BBE000361292 /* Build configuration list for PBXProject "VideoConvert" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
