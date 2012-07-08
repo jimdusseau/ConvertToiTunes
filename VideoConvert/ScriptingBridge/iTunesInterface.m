@@ -31,44 +31,61 @@
 -(NSArray *)fileMatcherRegexArray
 {
    NSError *regexError = nil;
-   NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"S(\\d+)E(\\d+)" options:NSRegularExpressionCaseInsensitive error:&regexError];
-   if(!regex)
+   NSRegularExpression *seasonRegex = [NSRegularExpression regularExpressionWithPattern:@"S(\\d+)E(\\d+)" options:NSRegularExpressionCaseInsensitive error:&regexError];
+   if(!seasonRegex)
    {
-      NSLog(@"Regex Error: %@", regexError);
+      NSLog(@"Season Regex Error: %@", regexError);
       return nil;
    }
    
-   return @[regex];
+   NSRegularExpression *dateRegex = [NSRegularExpression regularExpressionWithPattern:@"(\\d\\d\\d\\d)\\.(\\d\\d\\.\\d\\d)" options:NSRegularExpressionCaseInsensitive error:&regexError];
+   if(!dateRegex)
+   {
+      NSLog(@"Date Regex Error: %@", regexError);
+      return nil;
+   }
+   
+   return @[seasonRegex, dateRegex];
 }
 
 - (TrackInfo *)trackInfoFromFileName:(NSString *)fileName
 {
-   NSAssert(self.regexArray && [self.regexArray count] == 1, @"RegexArray must exist and contain exactly one object");
-   NSRegularExpression *regex = [self.regexArray objectAtIndex:0];
-   
-   NSString *searchString = fileName;
-   NSTextCheckingResult *result = [regex firstMatchInString:searchString options:0 range:NSMakeRange(0, [searchString length])];
+   NSAssert(self.regexArray && [self.regexArray count] > 0, @"RegexArray must exist and have one or more objects");
    
    TrackInfo *trackInfo = nil;
-   if(result && result.numberOfRanges == 3)
+   for (NSRegularExpression *regex in self.regexArray)
    {
-      NSRange seasonRange = [result rangeAtIndex:1];
-      NSRange episodeRange = [result rangeAtIndex:2];
+      NSString *searchString = fileName;
+      NSTextCheckingResult *result = [regex firstMatchInString:searchString options:0 range:NSMakeRange(0, [searchString length])];
       
-      NSString *showName = [searchString substringWithRange:NSMakeRange(0, seasonRange.location-2)];
-      showName = [showName stringByReplacingOccurrencesOfString:@"." withString:@" "];
+      NSLog(@"Result %@ for regex %@\n", result, regex);
+      if(result && result.numberOfRanges == 3)
+      {
+         NSRange seasonRange = [result rangeAtIndex:1];
+         NSRange episodeRange = [result rangeAtIndex:2];
+         
+         NSString *showName = [searchString substringWithRange:NSMakeRange(0, seasonRange.location-1)];
+         showName = [showName stringByReplacingOccurrencesOfString:@"." withString:@" "];
+         showName = [showName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+         
+         NSInteger seasonNumber = [[searchString substringWithRange:seasonRange] integerValue];
+         NSInteger episodeNumber = [[[searchString substringWithRange:episodeRange] stringByReplacingOccurrencesOfString:@"." withString:@""] integerValue];
+         
+         
+         
+         trackInfo = [[TrackInfo alloc] init];
+         
+         trackInfo.seasonNumber = seasonNumber;
+         trackInfo.episodeNumber = episodeNumber;
+         trackInfo.show = showName;
+      }
       
-      NSInteger seasonNumber = [[searchString substringWithRange:seasonRange] integerValue];
-      NSInteger episodeNumber = [[searchString substringWithRange:episodeRange] integerValue];
-      
-      
-      
-      trackInfo = [[TrackInfo alloc] init];
-      
-      trackInfo.seasonNumber = seasonNumber;
-      trackInfo.episodeNumber = episodeNumber;
-      trackInfo.show = showName;
+      if(trackInfo)
+      {
+         break;
+      }
    }
+   
    return trackInfo;
 }
 

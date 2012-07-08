@@ -37,5 +37,21 @@
    STAssertEquals(expectedEpisodeNumber, trackInfo.episodeNumber, nil);
 }
 
+-(void)testWhenGivenDateFormattedFileName_ShowAndDateWillBeSetOnTrack
+{
+   NSString *testFileName = @"Some.Show.2012.06.25.FORMAT-WHATEVER.AVI";
+   NSString *expectedShowName = @"Some Show";
+   NSInteger expectedSeasonNumber = 2012;
+   NSInteger expectedEpisodeNumber = 625;
+   
+   
+   iTunesInterface *interface = [[iTunesInterface alloc] init];
+   TrackInfo *trackInfo = [interface trackInfoFromFileName:testFileName];
+   
+   STAssertEqualStrings(expectedShowName, trackInfo.show);
+   STAssertEquals(expectedSeasonNumber, trackInfo.seasonNumber, nil);
+   STAssertEquals(expectedEpisodeNumber, trackInfo.episodeNumber, nil);
+}
+
 
 @end
