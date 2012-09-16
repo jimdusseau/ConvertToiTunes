@@ -228,7 +228,7 @@
 		FA93E5D114D5BBE000361292 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0450;
 			};
 			buildConfigurationList = FA93E5D414D5BBE000361292 /* Build configuration list for PBXProject "VideoConvert" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -317,6 +317,7 @@
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/VideoConvert";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VideoConvertTests/VideoConvertTests-Prefix.pch";
@@ -335,6 +336,7 @@
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/VideoConvert";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VideoConvertTests/VideoConvertTests-Prefix.pch";
