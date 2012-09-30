@@ -17,6 +17,6 @@
 @property NSArray *excludededFileExtensions;
 @property NSArray *passthroughFileExtensions;
 
--(void)doConversion;
+-(BOOL)doConversion;
 
 @end
