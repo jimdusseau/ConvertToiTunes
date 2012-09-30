@@ -20,16 +20,17 @@ int main (int argc, const char * argv[])
          return 1;
       }
       
-      NSString *logPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Logs/VideoConvert.log"];
-      freopen([logPath fileSystemRepresentation], "a", stderr);
-      
       NSString *path = [NSString stringWithCString:argv[1] encoding:NSUTF8StringEncoding];
       NSURL *pathURL = [NSURL fileURLWithPath:path];
       
-      if(![[NSFileManager defaultManager] fileExistsAtPath:path]) {
+      NSFileManager *fileManager = [[NSFileManager alloc] init];
+      if(![fileManager fileExistsAtPath:path]) {
          NSLog(@"File not found at path: %@", path);
          return 1;
       }
+      
+      NSString *logPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Logs/VideoConvert.log"];
+      freopen([logPath fileSystemRepresentation], "a", stderr);
       
       ConversionEngine *engine = [[ConversionEngine alloc] init];
       engine.excludededFileExtensions = [NSArray arrayWithObject:@"mkv"];
