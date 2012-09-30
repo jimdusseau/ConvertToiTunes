@@ -12,28 +12,42 @@
 
 @implementation ConversionEngine
 
-@synthesize videoURL;
-@synthesize excludededFileExtensions;
 
 -(void)doConversion
 {
    NSLog(@"\n\n\n********** Beginning work on %@ **********", self.videoURL);
    
-   if([excludededFileExtensions containsObject:[self.videoURL pathExtension]])
+   if([_excludededFileExtensions containsObject:[self.videoURL pathExtension]])
    {
       NSLog(@"********** Stopping convert because the path extension is on the excluded list. **********\n\n");
       return;
    }
    
-   HandbrakeWrapper *handbrakeWrapper = [[HandbrakeWrapper alloc] init];
-   NSURL *convertedFileUrl = [handbrakeWrapper convertVideoURL:self.videoURL usingPreset:@"AppleTV 3" newExtension:@"m4v"];
+   BOOL isPassthrough = [_passthroughFileExtensions containsObject:[self.videoURL pathExtension]];
+   NSURL *convertedFileUrl = nil;
+   if(isPassthrough) {
+      NSLog(@"********** Not converting because the extension is on the passthrough list. **********\n\n");
+      convertedFileUrl = self.videoURL;
+   }
+   else {
+      HandbrakeWrapper *handbrakeWrapper = [[HandbrakeWrapper alloc] init];
+      convertedFileUrl = [handbrakeWrapper convertVideoURL:self.videoURL usingPreset:@"AppleTV 3" newExtension:@"m4v"];
+   }
+   
+   [self addToiTunes:convertedFileUrl];
+   
+   if(!isPassthrough) {
+      [[NSFileManager defaultManager] removeItemAtURL:convertedFileUrl error:NULL];
+   }
+}
+
+-(void)addToiTunes:(NSURL *)convertedFileUrl {
    if(convertedFileUrl)
    {
       NSLog(@"********** Adding to iTunes **********");
       
       iTunesInterface *interface = [[iTunesInterface alloc] init];
       [interface addVideoToiTunes:convertedFileUrl];
-      [[NSFileManager defaultManager] removeItemAtURL:convertedFileUrl error:NULL];
    }
 }
 

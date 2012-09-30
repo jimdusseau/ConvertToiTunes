@@ -13,8 +13,9 @@
    
 }
 
-@property (retain, nonatomic) NSURL *videoURL;
-@property (retain, nonatomic) NSArray *excludededFileExtensions;
+@property NSURL *videoURL;
+@property NSArray *excludededFileExtensions;
+@property NSArray *passthroughFileExtensions;
 
 -(void)doConversion;
 

@@ -26,8 +26,14 @@ int main (int argc, const char * argv[])
       NSString *path = [NSString stringWithCString:argv[1] encoding:NSUTF8StringEncoding];
       NSURL *pathURL = [NSURL fileURLWithPath:path];
       
+      if(![[NSFileManager defaultManager] fileExistsAtPath:path]) {
+         NSLog(@"File not found at path: %@", path);
+         return 1;
+      }
+      
       ConversionEngine *engine = [[ConversionEngine alloc] init];
       engine.excludededFileExtensions = [NSArray arrayWithObject:@"mkv"];
+      engine.passthroughFileExtensions = @[@"mp4"];
       engine.videoURL = pathURL;
       [engine doConversion];
    }
