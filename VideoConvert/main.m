@@ -36,7 +36,21 @@ int main (int argc, const char * argv[])
       engine.excludededFileExtensions = [NSArray arrayWithObject:@"mkv"];
       engine.passthroughFileExtensions = @[@"mp4"];
       engine.videoURL = pathURL;
-      [engine doConversion];
+      BOOL conversionSuccess = [engine doConversion];
+      
+      if(conversionSuccess && [fileManager respondsToSelector:@selector(trashItemAtURL:resultingItemURL:error:)]) {
+         NSLog(@"********** Trashing Original File **********\n");
+         NSError *fileTrashingError = nil;
+         NSURL *resultURL = nil;
+         BOOL trashingSuccess = [fileManager trashItemAtURL:pathURL resultingItemURL:&resultURL error:&fileTrashingError];
+         if(trashingSuccess) {
+            NSLog(@"Successfully trashed %@ to %@", pathURL, resultURL);
+         }
+         else {
+            NSLog(@"Trashing %@ failed with error %@", pathURL, fileTrashingError);
+         }
+      }
+      
    }
    return 0;
 }
